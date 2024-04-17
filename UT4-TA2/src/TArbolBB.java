@@ -13,8 +13,13 @@ public class TArbolBB<T> implements IArbolBB<T> {
 
     @Override
     public boolean insertar(TElementoAB<T> unElemento) {
-
-        throw new UnsupportedOperationException("Unimplemented method 'insertar'");
+        if(raiz == null){
+            raiz = unElemento;
+        }
+        else{
+            raiz.insertar(unElemento);
+        }
+        return false;
     }
 
     @Override

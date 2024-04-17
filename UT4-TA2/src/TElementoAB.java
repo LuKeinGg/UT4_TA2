@@ -62,8 +62,27 @@ public class TElementoAB<T> implements IElementoAB<T> {
 
     @Override
     public boolean insertar(TElementoAB<T> elemento) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'insertar'");
+        if(this.etiqueta == elemento.etiqueta){
+            return false;
+        }
+        if(elemento.etiqueta.compareTo(this.etiqueta) < 0){
+            if(getHijoIzq() == null){
+                setHijoIzq(elemento);
+                return true;
+            }
+            else{
+                return this.getHijoIzq().insertar(elemento);
+            }
+        }
+        else{
+            if(getHijoDer() == null){
+                setHijoDer(elemento);
+                return true;
+            }
+            else{
+                return this.getHijoDer().insertar(elemento);
+            }
+        }
     }
 
     @Override
